@@ -1,0 +1,17 @@
+[Unit]
+Description=Cocktails App
+After=cloud-final.service
+
+[Service]
+WorkingDirectory=/home/ec2-user/cocktails
+ExecStart=/usr/bin/node /home/ec2-user/cocktails/server.js
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=cocktails-app
+User=ec2-user
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=cloud-init.target
